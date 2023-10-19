@@ -7,11 +7,11 @@ const userController=require('../controllers/user')
 const router=express.Router();
 
 
-router.post('/Add-user',userController.adduser)
+router.post('/Add-expense',userController.addexpense)
 
-router.get('/Get-user',userController.getuser)
+router.get('/Get-expense',userController.getexpense)
 
-router.delete('/Delete-user/:id',userController.deleteuser)
+router.delete('/Delete-expense/:id',userController.deleteexpense)
 
 module.exports=router
 

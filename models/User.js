@@ -2,7 +2,7 @@ const {Sequelize}= require('sequelize');
 
 const sequelize=require('../util/database');
 
-const User= sequelize.define('user',{
+const User= sequelize.define('expense',{
   id:{
     type:Sequelize.INTEGER,
   autoIncrement:true,
@@ -10,19 +10,19 @@ const User= sequelize.define('user',{
   primaryKey:true
 },
 
-name:{
-  type:Sequelize.STRING(255),
+expenseamount:{
+  type:Sequelize.INTEGER,
   allowNull:false
 },
 
-email:{
+description:{
   type:Sequelize.STRING,
   unique:true
 },
 
-phonenumber:{
+Category:{
   type:Sequelize.STRING,
-  unique:true
+
 }
 
 });

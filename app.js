@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
-app.use('/User',userRoutes)
+app.use('/Expense',userRoutes)
 
 
 app.use(errorController.get404);
@@ -33,7 +33,7 @@ sequelize
   .sync()
   .then((result) => {
     // console.log(result);
-    app.listen(3000);
+    app.listen(5000);
   })
   .catch(err => {
     console.log(err);

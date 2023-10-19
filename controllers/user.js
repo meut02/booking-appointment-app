@@ -1,13 +1,13 @@
 const User=require('../models/User')
 
-exports.adduser=(async(req,res,next)=>{
+exports.addexpense=(async(req,res,next)=>{
     try{
-    const name=req.body.Name;
-    const email=req.body.Email;
-    const phonenumber=req.body.Contact
+    const expenseamount=req.body.expenseamount;
+    const description=req.body.description;
+    const category=req.body.category
   
-    const data= await User.create({name:name,email:email,phonenumber:phonenumber})
-    res.status(201).json({newuserdetails:data});
+    const data= await User.create({expenseamount:expenseamount,description:description,Category:category})
+    res.status(201).json({newexpensedetails:data});
     }
     catch(err){
       res.status(500).json({
@@ -16,17 +16,17 @@ exports.adduser=(async(req,res,next)=>{
     }
   })
 
-  exports.getuser=(async(req,res,next)=>{
+  exports.getexpense=(async(req,res,next)=>{
     try{
-    const users=await User.findAll()
-    res.status(200).json({allusers:users})
+    const expense=await User.findAll()
+    res.status(200).json({allexpense:expense})
     }
     catch(err){
       res.status(500).json({error:err})
     }
   })
 
-  exports.deleteuser=(async(req,res,next)=>{
+  exports.deleteexpense=(async(req,res,next)=>{
     try{
       if(req.params.id=='undefined')
       {
@@ -39,4 +39,19 @@ exports.adduser=(async(req,res,next)=>{
     catch(err){
       console.log(err)
     }
+  })
+
+  exports.editexpense=(async(req,res,next)=>{
+    try{
+      if(req.params.id=='undefined')
+      {
+        return res.status(400).json({err:'id is missing'})
+      }
+      const uid=req.params.id
+    }
+    catch(err){
+      console.log(err)
+    }
+
+    
   })
